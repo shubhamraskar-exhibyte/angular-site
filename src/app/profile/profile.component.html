@@ -1,0 +1,21 @@
+<div class="flex md:gap-6 gap-2 login-btns">
+  <div class="flex md:gap-6 gap-2">
+    <button mat-stroked-button routerLink="/login">Log in</button>
+    <button mat-stroked-button routerLink="/sign-up">Sign Up</button>
+  </div>
+
+  <div class="profile">
+    <div
+      class="h-10 w-10 rounded-full bg-white border p-1 text-black flex justify-center items-center text-xl font-bold cursor-pointer"
+      [matMenuTriggerFor]="menu"
+    >
+      JD
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item class="bg-white"><mat-icon>settings</mat-icon>
+        Setting</button>
+      <button mat-menu-item><mat-icon>power_settings_new</mat-icon>
+        Logout</button>
+    </mat-menu>
+  </div>
+</div>

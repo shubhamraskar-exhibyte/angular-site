@@ -1,0 +1,16 @@
+<div class="filter">
+  <div class="search-input flex justify-center items-center py-5">
+    <mat-form-field class="example-form-field" appearance="outline">
+      <input matInput type="text" [(ngModel)]="value" (input)="searchRecipe()" />
+      @if (value) {
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+  </div>
+
+  <div class=" my-6">
+    <app-food-card class="flex flex-wrap lg:grid lg:grid-rows-1 lg:grid-flow-col gap-5"></app-food-card>
+  </div>
+</div>
