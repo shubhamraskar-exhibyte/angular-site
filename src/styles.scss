@@ -40,3 +40,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .filter .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
   padding-right: 16px;
 }
+
+.mat-mdc-form-field-subscript-wrapper {
+  // display: none;
+} 
+
+.example-form .mat-mdc-form-field-subscript-wrapper .mat-mdc-form-field-error-wrapper {
+  padding: 0 0 !important;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0 !important; 
+}

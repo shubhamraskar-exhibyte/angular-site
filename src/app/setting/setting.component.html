@@ -1,0 +1,53 @@
+<div class="h-full py-28 flex gap-10">
+  <div
+    class="bg-white border rounded-full h-28 w-28 flex justify-center items-center"
+  >
+    <div class="mb-0 font-bold text-3xl cursor-default">T</div>
+  </div>
+  <div class="flex gap-3 flex-col">
+    <div class="flex gap-3">
+      <label for="">Name</label>
+      <div class="font-bold">{{currentPassword.username}}</div>
+    </div>
+    <div class="flex gap-3">
+      <label for="">Email</label>
+      <div class="font-bold">{{currentPassword.email}}</div>
+    </div>
+    <a
+      class="cursor-pointer mt-2 text-blue-600"
+      (click)="toggleReset = !toggleReset"
+    >
+      Reset Password
+    </a>
+    <div *ngIf="toggleReset" class="mt-8">
+      <form [formGroup]="resetpassword" (ngSubmit)="onSubmit()">
+
+        <div>
+          <label for="" class="font-bold">Old Password</label>
+          <mat-form-field class="w-full" appearance="outline">
+            <input matInput formControlName="oldpassword" placeholder="Enter your Old Password" />
+            <mat-error *ngIf="resetpassword.get('oldpassword').invalid && resetpassword.get('oldpassword').touched">
+              Old Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <label for="" class="font-bold">New Password</label>
+          <mat-form-field class="w-full" appearance="outline">
+            <input formControlName="newpassword" matInput placeholder="Enter your New Password..." />
+            <mat-error *ngIf="resetpassword.get('newpassword').invalid && resetpassword.get('newpassword').touched">
+              New Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="flex justify-end">
+          <button mat-raised-button color="primary" class="font-bold">
+            Rest Password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

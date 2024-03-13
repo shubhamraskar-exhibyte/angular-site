@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommonService {
- public data:any;
+  public data: any;
+  private dataSubject = new Subject<any>();
 
-  setData(data: any) {
-    this.data = data;
+  sendData(data: any) {
+    this.dataSubject.next(data);
   }
 
-  getData() {
-      return this.data;
+  getData(): Observable<any> {
+    return this.dataSubject.asObservable();
   }
-
 }

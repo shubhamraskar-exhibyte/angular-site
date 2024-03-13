@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonService } from '../../common/common.service';
+import { CommonService } from '../common/common.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,11 +14,12 @@ import { Router } from '@angular/router';
   styleUrl: './food-card.component.scss',
 })
 export class FoodCardComponent {
-  receivedData: any;
+  receivedData: Observable<any>;
   constructor(private dataService: CommonService, private router: Router) {
-    setTimeout(() => {
-      this.receivedData = this.dataService.getData();
-    },100);
+    this.receivedData = this.dataService.getData();
   }
-  
+
+  goToDetails(item: any) {
+    this.router.navigate(['/details', item.idMeal]);
+  }
 }

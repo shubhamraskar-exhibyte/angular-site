@@ -1,9 +1,9 @@
 <div class="filter">
   <div class="search-input flex justify-center items-center py-5">
-    <mat-form-field class="example-form-field" appearance="outline">
-      <input matInput type="text" [(ngModel)]="value" (input)="searchRecipe()" />
+    <mat-form-field class="example-form-field w-full" appearance="outline">
+      <input matInput type="text" [(ngModel)]="value" (input)="searchRecipe()" placeholder="Search your favorite recipe here..."/>
       @if (value) {
-      <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
         <mat-icon>close</mat-icon>
       </button>
       }
