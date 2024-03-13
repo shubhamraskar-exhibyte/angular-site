@@ -1,0 +1,17 @@
+<div
+  class="card shadow-md border cursor-pointer w-[300px] flex-1"
+  *ngFor="let item of receivedData | async" (click)="goToDetails(item)">
+  <div class="main-image">
+    <img [src]="item.strMealThumb" alt="" />
+  </div>
+  <div class="p-3">
+    <h2 class="truncate text-2xl">{{ item.strMeal }}</h2>
+    <p class="truncate">{{ item.strInstructions }}</p>
+  </div>
+</div>
+
+<ng-container *ngIf="(receivedData | async).length === 0;">
+  <div class="mt-4 text-center text-2xl">
+    No results found for your search!
+  </div>
+</ng-container>
